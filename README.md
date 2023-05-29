@@ -7,7 +7,7 @@ temperature), but is designed to be more generally applicable in future.
 This code has been tested in Python 3.9, and compatibility is only ensured for Python 3.9 and above.
 
 # Module dependencies
-This code requires the following modules:
+This code requires the following python modules:
 - [numpy](https://numpy.org/)
 - [xarray](https://xarray.dev/)
 - A netcdf I/O module compatible with xarray ([scipy](https://scipy.org/), [netcdf4-python](https://unidata.github.io/netcdf4-python/), [h5netcdf](https://github.com/h5netcdf/h5netcdf))
@@ -57,3 +57,6 @@ Anyone is welcome to contribute to this project! Leave comments/fixes/suggestion
 
 # Open data for outputs
 A short statement about principles and steps/tools required for open publication of output data from this tool can be [found here](https://github.com/malcolmking/climate-analyst-task/blob/main/OPEN_DATA_PLAN.md).
+
+# More information
+- [CCAM model](https://confluence.csiro.au/display/CCAM/CCAM)
