@@ -33,7 +33,8 @@ With the above as guiding principles, making the full post-processed data an ope
   and CSIRO's own [Data Access Portal](https://data.csiro.au/) are highly advisable (and likely required in regards to the CSIRO Data Access Portal).
   The metadata in these entries should contain references to the data catalogue entry for the ACCESS-CM2 data prepared for the CMIP6 experiment SSP370, 
   references to software for this post-processing code, the CCAM model and the ACCESS-CM2 model, to the Australian Climate Hazards project and to 
-  the specifications for the CMIP6 SSP370 experiment.
+  the specifications for the CMIP6 SSP370 experiment (hopefully, all of these have their own entries in repositories with DOIs and following FAIR principles,
+  or where at least metadata for each of these can be found).
 - **Adherence to common conventions**: In this case, at least [CF compliance](http://cfconventions.org/) for the post-processed netCDF files 
   and, depending on the data catalogue, metadata meeting at least one of [ACDD](https://wiki.esipfed.org/Attribute_Convention_for_Data_Discovery_1-3) 
   compliance, ISO19115-2 compliance, or compliance with the data catlogue's own metadata specifications. The post-processing code here should 
