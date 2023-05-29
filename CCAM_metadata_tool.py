@@ -36,11 +36,13 @@ coord_metadata={'lon':{'units':'degrees_east',\
 
 # The following maps data variables to dictionaries containing their metadata.
 # At the moment, only works for tas (near-surface temperature), easily extended in future
+# Not certain if tas output from CCAM is point-like or grid-cell average; if grid cell average,
+# need to add 'cell_method':'area: mean' to dictionary.
 datavar_metadata={'tas':{'units':'K',\
                          'standard_name':'air_temperature',\
                          'long_name':'near-surface air temperature'}}
 
-# Dictionary containing default global metadata.
+# Dictionary containing default global metadata for the CCAM output described.
 global_metadata={'title':'CSIRO CCAM output prepared for Australian Climate Hazards project',\
                  'institution':'Commonwealth Scientific and Industrial Research Organisation (CSIRO)',\
                  'source':'CCAM',\
@@ -82,6 +84,7 @@ def update_global_metadata(dataset,global_metadata=global_metadata):
     
     Can be provided with a dictionary that replaces the default metadata, but this does not
     ensure compliance of the output dataset."""
+    # Ensure that history field is updated with current timestamp
     current_time=datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%Sz')
     if 'history' in dataset.attrs:
         history=current_time+" ; metadata added by CCAM_metadata_tool.py \n"+dataset.history
@@ -111,7 +114,8 @@ def output_file_name(dataset):
         file_prefix=list(dataset.data_vars.keys())[0]
     else:
         file_prefix='data'
-        
+    
+    # The below could be cleaned up in future.
     if ('domain' in dataset.attrs) and ('source' in dataset.attrs) and ('driving_model' in dataset.attrs):
         output_file=file_prefix+'_'+dataset.domain+'_'+dataset.source+'_'+dataset.driving_model+'_'+start_str+'-'+end_str+'.nc'
     elif ('domain' in dataset.attrs) and ('source' in dataset.attrs):
@@ -134,6 +138,7 @@ def apply_metadata(input_file,output_file=None,global_metadata=global_metadata):
     dataset=xr.open_dataset(input_file)
     update_metadata(dataset,global_metadata)
     
+    # dtype for time changed to double and _FillValue for coords removed to meet CF conventions.
     encoding={"lon":{'zlib':False,'_FillValue': None},\
               "lat":{'zlib':False,'_FillValue': None},\
               "time":{'zlib':False,'_FillValue':None,'dtype':'double'}}
@@ -153,6 +158,10 @@ Will take an argument file path, and output a file.
 """
 
 if __name__=="__main__":
+
+    # If running as a script, the following will take the first argument after
+    # the script name as the input filepath, and the second as the ouput if it
+    # is provided.
     import sys
     arguments=sys.argv
     if len(arguments)>=3:
