@@ -10,7 +10,7 @@ This code has been tested in Python 3.9, and compatibility is only ensured for P
 This code requires the following modules:
 - [numpy](https://numpy.org/)
 - [xarray](https://xarray.dev/)
-- A netcdf I/O module compatible with xarray([scipy](https://scipy.org/), [netcdf4-python](https://unidata.github.io/netcdf4-python/), [h5netcdf](https://github.com/h5netcdf/h5netcdf))
+- A netcdf I/O module compatible with xarray ([scipy](https://scipy.org/), [netcdf4-python](https://unidata.github.io/netcdf4-python/), [h5netcdf](https://github.com/h5netcdf/h5netcdf))
 
 # How to use
 ## From command line
@@ -51,3 +51,9 @@ compliance using the [IOOS Compliance Checker](https://compliance.ioos.us/index.
 This code is licenced for use under a [GNU General Public License v3.0](https://github.com/malcolmking/climate-analyst-task/blob/main/LICENSE).
 It is generally free for use and modification, given that any derivative works are available under the same 
 licence (for more exact information, check the licence).
+
+# Contribute
+Anyone is welcome to contribute to this project! Leave comments/fixes/suggestions in the issues tab above.
+
+# Open data for outputs
+A short statement about principles and steps/tools required for open publication of output data from this tool can be [found here](https://github.com/malcolmking/climate-analyst-task/blob/main/OPEN_DATA_PLAN.md).
